@@ -1,0 +1,10 @@
+<link rel="import" href="../packages/polymer/polymer.html">
+<polymer-element name="profiteer-league-picker">
+  <template>
+    The leagues are:
+    <template repeat="{{ league in leagues }}">
+      <div>{{ league }}</div>
+    </template>
+  </template>
+  <script type="application/dart" src="league_picker.dart"></script>
+</polymer-element>

@@ -1,6 +1,7 @@
 name: profiteer_client
 dependencies:
-  polymer: ">=0.12.0 <0.13.0"
+  polymer: ">=0.13.0 <0.14ls.0"
+  core_elements: ">=0.2.0 <0.3.0"
   browser: ">=0.10.0 <0.11.0"
 transformers:
   - polymer:

@@ -1,6 +1,9 @@
 <link rel="import" href="packages/polymer/polymer.html">
+<link rel="import" href="elements/league_picker.html">
 <polymer-element name="profiteer-app" noscript>
   <template>
-    It's the webdev sensation that's sweeping the nation!
+    <profiteer-league-picker
+      leagues='["standard","hardcore","rampage","beyond"]'>
+    </profiteer-league-picker>
   </template>
 </polymer-element>
