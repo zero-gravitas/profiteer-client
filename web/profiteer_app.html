@@ -1,7 +1,14 @@
 <link rel="import" href="packages/polymer/polymer.html">
 <link rel="import" href="elements/league_picker.html">
+<link rel="import" href="elements/league_stash.html">
+<link rel="import" href="elements/sync.html">
+<link rel="import" href="lib-elements/api_client.html">
+
 <polymer-element name="profiteer-app" noscript>
   <template>
+    <profiteer-api-client id="api-client"></profiteer-api-client>
+    <profiteer-sync apiClientId="api-client">
+    </profiteer-sync>
     <profiteer-league-picker
       leagues='["standard","hardcore","rampage","beyond"]'>
     </profiteer-league-picker>

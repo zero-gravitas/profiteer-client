@@ -1,9 +1,11 @@
 <link rel="import" href="../packages/polymer/polymer.html">
+<link rel="import" href="league_stash.html">
 <polymer-element name="profiteer-league-picker">
   <template>
     The leagues are:
-    <template repeat="{{ league in leagues }}">
-      <div>{{ league }}</div>
+    <template repeat="{{league in leagues}}">
+      <profiteer-league-stash league="{{league}}">
+      </profiteer-league-stash>
     </template>
   </template>
   <script type="application/dart" src="league_picker.dart"></script>

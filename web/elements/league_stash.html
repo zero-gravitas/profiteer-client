@@ -2,11 +2,13 @@
 <link rel="import" href="packages/core_elements/core_selector.html">
 
 <polymer-element name="profiteer-league-stash">
-  {{model.league.value}}
   <template>
-    <template repeat="{{model.tabs}}">
-      <div>{{name}}</div>
-    </template>
+    <section>
+      {{model.league.value}}
+      <template repeat="{{model.tabs}}">
+        <div>{{name}}</div>
+      </template>
+    </section>
   </template>
   <script type="application/dart" src="league_stash.dart"></script>
 </polymer-element>

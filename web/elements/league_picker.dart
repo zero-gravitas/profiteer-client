@@ -6,7 +6,7 @@ import '../src/stash.dart';
 
 @CustomTag('profiteer-league-picker')
 class LeaguePicker extends PolymerElement {
-  @published List<String> leagues;
+  final leagues = League.leagues.values;
 
   factory LeaguePicker() => new Element.tag('league-picker');
   LeaguePicker.created() : super.created();
