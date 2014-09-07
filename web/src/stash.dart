@@ -1,5 +1,7 @@
 library profiteer.stash;
 
+import 'package:observe/observe.dart';
+
 class League {
   // TODO: Garena. Is it as easy as it should be?
   static const STANDARD = const League._('standard');
@@ -28,13 +30,14 @@ class League {
   String toJson() { return value; }
 }
 
-class Stash {
+class Stash extends Observable {
   League league;
-  List<Tab> tabs = [];
+  @observable List<Tab> tabs = [];
 
   Stash(this.league);
   Stash.fromJson(Map json) {
     league = new League.fromJson(json['league']);
+
     tabs = json['tabs'].map((tab) => new Tab.fromJson(tab)).toList();
   }
 
@@ -93,13 +96,35 @@ class Tab {
 
 class Item {
   final String name;
+  final String typeLine;
+  final int width;
+  final int height;
+  final int x;
+  final int y;
+  final String icon;
 
-  Item(this.name);
-  Item.fromJson(Map json) {
+  Item(this.name, this.typeLine, this.width, this.height, this.x, this.y,
+      this.icon);
+  // This is a factory because it needs to dispatch on the type of the item
+  Item.fromPoeApi(Map json) {
     name = json['name'];
+    typeLine = json['typeLine'];
+    width = json['w'];
+    height = json['h'];
+    x = json['x'];
+    y = json['y'];
+    icon = json['icon'];
   }
 
   Map toJson() {
-    return {'name': name};
+    return {
+      'name': name
+      'typeLine': typeLine,
+      'width': width,
+      'height': height,
+      'x': x,
+      'y': y,
+      'icon': icon
+    };
   }
 }

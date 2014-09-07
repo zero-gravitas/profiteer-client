@@ -1,10 +1,20 @@
-<link rel="import" href="../packages/polymer/polymer.html">
+<link rel="import" href="packages/polymer/polymer.html">
+<link rel="import" href="packages/core_elements/core_selector.html">
 <link rel="import" href="league_stash.html">
+<link rel="import" href="sync.html">
 <polymer-element name="profiteer-league-picker">
   <template>
+    <profiteer-sync apiClientId="api-client" id="sync"></profiteer-sync>
     The leagues are:
+    <core-selector id="selector" selected={{index}} on-core-select={{select}}>
+      <template repeat="{{leagues}}">
+        <div>{{value}}</div>
+      </template>
+    </core-selector>
     <template repeat="{{league in leagues}}">
-      <profiteer-league-stash league="{{league}}">
+      <profiteer-league-stash league="{{league}}" storageKey="{{league.value}}"
+                              id="{{league.value}}-stash"
+                              hidden?="{{leagues[index] != league}}">
       </profiteer-league-stash>
     </template>
   </template>
