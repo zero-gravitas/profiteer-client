@@ -1,0 +1,21 @@
+<link rel="import" href="packages/polymer/polymer.html">
+<link rel="import" href="packages/core_elements/core_selector.html">
+<link rel="import" href="stash.html">
+
+<polymer-element name="profiteer-inventory" on-stash-changed="{{save}}">
+  <template>
+    <select selectedIndex="{{index}}">
+      <option template repeat="{{leagues}}" value="{{value}}">
+        {{value}}
+      </option>
+    </select>
+    <template repeat="{{stash in stashes}}">
+      <profiteer-stash
+        model="{{stash}}"
+        hidden?="{{stash.league != leagues[index]}}">
+      </profiteer-league-stash>
+
+    </template>
+    <script type="application/dart" src="inventory.dart"></script>
+  </template>
+</polymer-element>
