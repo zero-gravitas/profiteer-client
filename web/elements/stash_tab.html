@@ -1,0 +1,25 @@
+<link rel="import" href="packages/polymer/polymer.html">
+<link rel="import" href="item.html">
+
+<polymer-element name="profiteer-stash-tab">
+  <template>
+    <style>
+     :host {
+       background: #444;
+       display: inline-block;
+     }
+      #item-grid {
+        position: relative;
+        height: 540px;
+        width: 540px;
+        margin: 20px;
+      }
+    </style>
+    <div id="item-grid">
+      <template repeat="{{model.items}}">
+        <profiteer-item model="{{}}"></profiteer-item>
+      </template>
+    </div>
+  </template>
+  <script type="application/dart" src="stash_tab.dart"></script>
+</polymer-element>

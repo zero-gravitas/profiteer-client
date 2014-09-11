@@ -16,7 +16,10 @@ const String EXTENSION_ID = "achekneimlaiohppchbdfggjoelmhajm";
 class ApiClient {
   Future<dynamic> poeXhr(String route, Map<String, dynamic> params) {
     return chrome.runtime.sendMessage([route, params], EXTENSION_ID)
-      .then((resp) => resp['result']);
+      .then((resp) {
+        var stringified = context['JSON'].callMethod('stringify', [resp]);
+        return JSON.decode(stringified)['result'];
+      });
   }
 
   /**
@@ -28,17 +31,10 @@ class ApiClient {
       "tabs": 1,
       "tabIndex": 0
     }).then((json) {
-      JsArray jsTabs = json['tabs'];
-      List<Tab> tabs = [];
-      for (var i = 0; i < jsTabs.length; i++) {
-        var jsTab = jsTabs[i];
-        var color = jsTab['colour'];
-        tabs.add(new Tab(
-                jsTab['n'],
-                new Color(color['r'], color['g'], color['b']),
-                []));
-      }
-      return tabs;
+      return json['tabs'].map((tab) {
+        var color = tab['colour'];
+        return new Tab(tab['n'], new Color(color['r'], color['g'], color['b']), []);
+      }).toList();
     });
   }
 

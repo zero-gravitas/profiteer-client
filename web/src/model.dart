@@ -52,7 +52,7 @@ class Stash extends Observable {
 /**
  * An HTML RGB color, with values in the range 0 to 255.
  */
-class Color {
+class Color extends Observable {
   final int r;
   final int g;
   final int b;
@@ -69,7 +69,7 @@ class Color {
   }
 }
 
-class Tab {
+class Tab extends Observable {
   final String name;
   final Color color;
   @observable ObservableList<Item> items;
@@ -91,7 +91,7 @@ class Tab {
   }
 }
 
-class Item {
+class Item extends Observable {
   final String name;
   final String typeLine;
   final int width;
@@ -103,19 +103,30 @@ class Item {
   Item(this.name, this.typeLine, this.width, this.height, this.x, this.y,
       this.icon);
   // This is a factory because it needs to dispatch on the type of the item
-  Item.fromPoeApi(Map json) {
-    name = json['name'];
-    typeLine = json['typeLine'];
-    width = json['w'];
-    height = json['h'];
-    x = json['x'];
-    y = json['y'];
-    icon = json['icon'];
+  factory Item.fromPoeApi(Map json) {
+    return new Item(
+        json['name'],
+        json['typeLine'],
+        json['w'],
+        json['h'],
+        json['x'],
+        json['y'],
+        json['icon']);
+  }
+  factory Item.fromJson(Map json) {
+    return new Item(
+        json['name'],
+        json['typeLine'],
+        json['width'],
+        json['height'],
+        json['x'],
+        json['y'],
+        json['icon']);
   }
 
   Map toJson() {
     return {
-      'name': name
+      'name': name,
       'typeLine': typeLine,
       'width': width,
       'height': height,

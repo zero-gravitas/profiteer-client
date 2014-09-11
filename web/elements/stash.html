@@ -1,12 +1,11 @@
 <link rel="import" href="packages/polymer/polymer.html">
+<link rel="import" href="stash_tab.html">
 
 <polymer-element name="profiteer-stash">
   <template>
     <h2>{{model.league.value}} league</h2>
-    <template repeat="{{model.tabs}}">
-      <section>
-        {{name}}
-      </section>
+    <template repeat="{{tab in model.tabs}}">
+      <profiteer-stash-tab model="{{tab}}"></profiteer-stash-tab>
     </template>
   </template>
   <script type="application/dart" src="stash.dart"></script>

@@ -1,0 +1,14 @@
+<link rel="import" href="packages/polymer/polymer.html">
+
+<polymer-element name="profiteer-item">
+  <template>
+    <style>
+     img.icon {
+       position: absolute;
+     }
+    </style>
+    <img class="icon" _src="{{model.icon}}"
+         style="left: {{model.x * 45}}px; top: {{model.y * 45}}px">
+  </template>
+  <script type="application/dart" src="item.dart"></script>
+</polymer-element>

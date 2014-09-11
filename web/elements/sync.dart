@@ -17,6 +17,14 @@ class ProfiteerSync extends PolymerElement {
     _apiClient.getTabList(stash.league).then((tabs) {
       stash.tabs = tabs;
       fire('sync');
+      for (var i = 0; i < stash.tabs.length; i++) {
+        Tab tab = stash.tabs[i];
+        _apiClient.getTabContents(stash.league, i).then((items) {
+          tab.items.clear();
+          tab.items.addAll(items);
+          fire('sync');
+        });
+      }
     });
   }
 }

@@ -1,4 +1,4 @@
-library profiteer.elements.league;
+library profiteer.elements.stash;
 
 import 'dart:html';
 import 'package:polymer/polymer.dart';
