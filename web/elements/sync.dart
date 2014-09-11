@@ -3,7 +3,7 @@ library profiteer.elements.sync;
 import 'dart:html';
 import 'package:polymer/polymer.dart';
 import '../src/api_client.dart';
-import '../src/stash.dart';
+import '../src/model.dart';
 
 @CustomTag('profiteer-sync')
 class ProfiteerSync extends PolymerElement {

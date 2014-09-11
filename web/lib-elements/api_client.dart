@@ -6,7 +6,7 @@ import 'dart:html';
 import 'dart:js';
 import 'package:chrome/chrome_app.dart' as chrome;
 import 'package:polymer/polymer.dart';
-import '../src/stash.dart';
+import '../src/model.dart';
 
 const String EXTENSION_ID = "achekneimlaiohppchbdfggjoelmhajm";
 

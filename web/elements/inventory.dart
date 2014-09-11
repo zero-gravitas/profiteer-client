@@ -3,7 +3,7 @@ library profiteer.elements.inventory;
 import 'dart:convert' show JSON;
 import 'dart:html';
 import 'package:polymer/polymer.dart';
-import '../src/stash.dart';
+import '../src/model.dart';
 
 @CustomTag('profiteer-inventory')
 class ProfiteerInventory extends PolymerElement {

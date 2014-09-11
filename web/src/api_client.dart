@@ -4,7 +4,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:js';
 import 'package:chrome/chrome_app.dart' as chrome;
-import '../src/stash.dart';
+import '../src/model.dart';
 
 const String EXTENSION_ID = "achekneimlaiohppchbdfggjoelmhajm";
 

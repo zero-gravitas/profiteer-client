@@ -2,7 +2,7 @@ library profiteer.elements.league;
 
 import 'dart:html';
 import 'package:polymer/polymer.dart';
-import '../src/stash.dart';
+import '../src/model.dart';
 
 @CustomTag('profiteer-stash')
 class ProfiteerStash extends PolymerElement {
