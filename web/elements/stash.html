@@ -3,6 +3,11 @@
 <polymer-element name="profiteer-stash">
   <template>
     <h2>{{model.league.value}} league</h2>
+    <template repeat="{{model.tabs}}">
+      <section>
+        {{name}}
+      </section>
+    </template>
   </template>
   <script type="application/dart" src="stash.dart"></script>
 </polymer-element>

@@ -2,30 +2,20 @@ library profiteer.elements.sync;
 
 import 'dart:html';
 import 'package:polymer/polymer.dart';
-import '../lib-elements/api_client.dart';
-import 'league_stash.dart';
+import '../src/api_client.dart';
+import '../src/stash.dart';
 
 @CustomTag('profiteer-sync')
-class Sync extends PolymerElement {
-  @published String apiClientId;
-  @observable ApiClient apiClient;
-  @published String leagueStashId;
-  @observable LeagueStash leagueStash;
+class ProfiteerSync extends PolymerElement {
+  ApiClient _apiClient = new ApiClient();
+  @published Stash stash;
 
-  factory Sync() => new Element.tag('profiteer-sync');
-  Sync.created() : super.created();
-
-  void apiClientIdChanged() {
-    apiClient = document.querySelector('#$apiClientId');
-  }
-
-  void leagueStashIdChanged() {
-    leagueStash = document.querySelector('#$leagueStashId');
-  }
+  factory ProfiteerSync() => new Element.tag('profiteer-sync');
+  ProfiteerSync.created() : super.created();
 
   void sync() {
-    apiClient.getTabList(leagueStash.league).then((tabs) {
-      leagueStash.model.tabs = tabs;
+    _apiClient.getTabList(stash.league).then((tabs) {
+      stash.tabs = tabs;
     });
   }
 }

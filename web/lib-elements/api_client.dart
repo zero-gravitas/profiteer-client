@@ -10,17 +10,12 @@ import '../src/stash.dart';
 
 const String EXTENSION_ID = "achekneimlaiohppchbdfggjoelmhajm";
 
-@CustomTag('profiteer-api-client')
+
 class ApiClient extends PolymerElement {
-
-  factory ApiClient() => new Element.tag('profiteer-api-client');
-  ApiClient.created() : super.created();
-
   Future<dynamic> poeXhr(String route, Map<String, dynamic> params) {
     return chrome.runtime.sendMessage([route, params], EXTENSION_ID)
       .then((resp) => resp['result']);
   }
-
 
   /**
    * Get a list of all tabs in [league]. The tabs will have empty items.
