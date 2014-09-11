@@ -7,7 +7,10 @@
        position: absolute;
      }
     </style>
-    <img class="icon" _src="{{model.icon}}"
+    <!-- There's a good reason that there's no src attribtue on this!
+    See item.dart. -->
+    <img class="icon" width="{{model.width * 47}}"
+         height="{{model.height * 47}}"
          style="left: {{model.x * 45}}px; top: {{model.y * 45}}px">
   </template>
   <script type="application/dart" src="item.dart"></script>
