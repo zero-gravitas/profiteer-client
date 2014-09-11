@@ -10,6 +10,7 @@ class ProfiteerInventory extends PolymerElement {
   @published var index = 0;
   @published String storageKey;
   @observable ObservableList<Stash> stashes = toObservable([]);
+  @observable currentItem;
 
   factory ProfiteerInventory() => new Element.tag('profiteer-inventory');
   ProfiteerInventory.created() : super.created();
@@ -28,5 +29,13 @@ class ProfiteerInventory extends PolymerElement {
   void save() {
     if (storageKey == null) return;
     window.localStorage[storageKey] = JSON.encode(stashes);
+  }
+
+  void indexChanged() {
+    currentItem = null;
+  }
+
+  void itemMouseover(Event event) {
+    currentItem = event.detail;
   }
 }

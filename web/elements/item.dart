@@ -17,6 +17,10 @@ class ProfiteerItem extends PolymerElement {
     // something. Which looks ugly.
     async((_) => shadowRoot.querySelector('img.icon').src = model.icon);
   }
+
+  void mouseover() {
+    asyncFire('item-mouseover', detail: model);
+  }
 }
 
 

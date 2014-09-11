@@ -3,7 +3,8 @@
 <link rel="import" href="stash.html">
 <link rel="import" href="sync.html">
 
-<polymer-element name="profiteer-inventory" on-sync="{{save}}">
+<polymer-element name="profiteer-inventory" on-sync="{{save}}"
+                 on-item-mouseover="{{itemMouseover}}">
   <template>
     <select selectedIndex="{{index}}">
       <option template repeat="{{stashes}}" value="{{league.value}}">
@@ -16,6 +17,7 @@
         <profiteer-stash model="{{stash}}"></profiteer-stash>
       </section>
     </template>
+    {{currentItem.name}}{{currentItem.typeLine}}
     <script type="application/dart" src="inventory.dart"></script>
   </template>
 </polymer-element>
