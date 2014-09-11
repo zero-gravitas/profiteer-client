@@ -58,11 +58,7 @@ class Color {
   final int b;
 
   Color(this.r, this.g, this.b);
-  Color.fromJson(Map json) {
-    r = json['r'];
-    g = json['g'];
-    b = json['b'];
-  }
+  Color.fromJson(Map json) : r = json['r'], g = json['g'], b = json['b'];
 
   Map toJson() {
     return {
@@ -76,13 +72,14 @@ class Color {
 class Tab {
   final String name;
   final Color color;
-  List<Item> items;
+  @observable ObservableList<Item> items;
 
-  Tab(this.name, this.color, this.items);
-  Tab.fromJson(Map json) {
-    name = json['name'];
-    color = new Color.fromJson(json['color']);
-    items = json['items'].map((item) => new Item.fromJson(item));
+  Tab(this.name, this.color, items) {
+    this.items = toObservable(items);
+  }
+  Tab.fromJson(Map json) : name = json['name'],
+    color = new Color.fromJson(json['color']) {
+    items = toObservable(json['items'].map((item) => new Item.fromJson(item)));
   }
 
   Map toJson() {

@@ -3,15 +3,15 @@
 <link rel="import" href="stash.html">
 <link rel="import" href="sync.html">
 
-<polymer-element name="profiteer-inventory" on-stash-changed="{{save}}">
+<polymer-element name="profiteer-inventory" on-sync="{{save}}">
   <template>
     <select selectedIndex="{{index}}">
-      <option template repeat="{{leagues}}" value="{{value}}">
-        {{value}}
+      <option template repeat="{{stashes}}" value="{{league.value}}">
+        {{league.value}}
       </option>
     </select>
     <template repeat="{{stash in stashes}}">
-      <section hidden?="{{stash.league != leagues[index]}}">
+      <section hidden?="{{stash != stashes[index]}}">
         <profiteer-sync stash="{{stash}}"></profiteer-sync>
         <profiteer-stash model="{{stash}}"></profiteer-stash>
       </section>
