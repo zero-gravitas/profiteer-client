@@ -3,9 +3,14 @@
 
 <polymer-element name="profiteer-stash">
   <template>
+    <select selectedIndex="{{index}}">
+      <option template repeat="{{model.tabs}}">
+        {{name}}
+      </option>
+    </select>
     <h2>{{model.league.value}} league</h2>
-    <template repeat="{{tab in model.tabs}}">
-      <profiteer-stash-tab model="{{tab}}"></profiteer-stash-tab>
+    <template if="{{model.tabs.length > index}}">
+      <profiteer-stash-tab model="{{model.tabs[index]}}"></profiteer-stash-tab>
     </template>
   </template>
   <script type="application/dart" src="stash.dart"></script>

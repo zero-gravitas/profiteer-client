@@ -11,7 +11,7 @@
       </option>
     </select>
     <template repeat="{{stash in stashes}}">
-      <section hidden?="{{stash != stashes[index]}}">
+      <section hidden?="{{stashes[index] != stash}}">
         <profiteer-sync stash="{{stash}}"></profiteer-sync>
         <profiteer-stash model="{{stash}}"></profiteer-stash>
       </section>
