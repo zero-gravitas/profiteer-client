@@ -1,15 +1,15 @@
-library profiteer.elements.item;
+library profiteer.elements.item_icon;
 
 import 'dart:html';
 import 'package:polymer/polymer.dart';
 import '../src/model.dart';
 
-@CustomTag('profiteer-item')
-class ProfiteerItem extends PolymerElement {
+@CustomTag('profiteer-item-icon')
+class ProfiteerItemIcon extends PolymerElement {
   @published Item model;
 
-  factory ProfiteerItem() => new Element.tag('profiteer-item');
-  ProfiteerItem.created() : super.created();
+  factory ProfiteerItemIcon() => new Element.tag('profiteer-item-icon');
+  ProfiteerItemIcon.created() : super.created();
 
   void ready() {
     // This is kind of a weird hack, but it works. If you set the src in the
