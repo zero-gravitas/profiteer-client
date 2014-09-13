@@ -1,4 +1,5 @@
 <link rel="import" href="packages/polymer/polymer.html">
+<link rel="import" href="item.html">
 
 <polymer-element name="profiteer-stash-tab">
   <template>
@@ -7,24 +8,16 @@
        background: #444;
        display: inline-block;
      }
-
-     #item-grid {
-       position: relative;
-       height: 600px;
-       width: 600px;
-       margin: 20px;
-     }
-
-     img.icon {
-       position: absolute;
-     }
+      #item-grid {
+        position: relative;
+        height: 600px;
+        width: 600px;
+        margin: 20px;
+      }
     </style>
     <div id="item-grid">
-      <template repeat="{{model in model.items}}">
-        <img class="icon" width="{{model.width * 47}}"
-             height="{{model.height * 47}}"
-             style="left: {{model.x * 50}}px; top: {{model.y * 50}}px"
-             on-mouseover="{{iconMouseover}}">
+      <template repeat="{{model.items}}">
+        <profiteer-item model="{{}}"></profiteer-item>
       </template>
     </div>
   </template>
