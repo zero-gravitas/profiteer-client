@@ -1,0 +1,11 @@
+<link rel="import" href="packages/polymer/polymer.html">
+
+<polymer-element name="profiteer-item-info">
+  <template>
+    <h2>
+      {{model.name}} {{model.typeLine}}
+    </h2>
+    <img id="item-icon" _src="{{model.icon}}">
+  </template>
+  <script type="application/dart" src="item_info.dart"></script>
+</polymer-element>

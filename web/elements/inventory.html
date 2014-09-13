@@ -2,6 +2,7 @@
 <link rel="import" href="packages/core_elements/core_selector.html">
 <link rel="import" href="stash.html">
 <link rel="import" href="sync.html">
+<link rel="import" href="item_info.html">
 
 <polymer-element name="profiteer-inventory" on-sync="{{save}}"
                  on-item-mouseover="{{itemMouseover}}">
@@ -17,7 +18,7 @@
         <profiteer-stash model="{{stash}}"></profiteer-stash>
       </section>
     </template>
-    {{currentItem.name}}{{currentItem.typeLine}}
+    <profiteer-item-info model="{{currentItem}}"></profiteer-item-info>
     <script type="application/dart" src="inventory.dart"></script>
   </template>
 </polymer-element>
